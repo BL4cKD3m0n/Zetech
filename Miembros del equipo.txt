@@ -1,2 +1,6 @@
 Eduardo Figueroa Guerrero
+<<<<<<< HEAD
 Héctor Gerardo Villagran Aragón
+=======
+Barrios Aguirre Jesus Antonio
+>>>>>>> 8962ba23e227540287d497e79af671514bde0ddd
