@@ -293,7 +293,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 13399961e8ec83447b13ba808105146f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.5
+      value: 9.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 13399961e8ec83447b13ba808105146f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -301,7 +301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 13399961e8ec83447b13ba808105146f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.09
+      value: 12.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 13399961e8ec83447b13ba808105146f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -331,10 +331,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7383337641664373214, guid: 13399961e8ec83447b13ba808105146f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: da42047718153a142be4b617097dc2c1, type: 2}
     - target: {fileID: -4418814816607246157, guid: 13399961e8ec83447b13ba808105146f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 68e9667a3594e2a45a6f7549b6ab3651, type: 2}
+      objectReference: {fileID: 2100000, guid: ee516d6ddd3271a48bd4937c2d089fb2, type: 2}
     - target: {fileID: 919132149155446097, guid: 13399961e8ec83447b13ba808105146f, type: 3}
       propertyPath: m_Name
       value: Casco y Sandalias Power Up
@@ -342,7 +346,11 @@ PrefabInstance:
     - target: {fileID: 3861724592169968330, guid: 13399961e8ec83447b13ba808105146f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 68e9667a3594e2a45a6f7549b6ab3651, type: 2}
+      objectReference: {fileID: 2100000, guid: da42047718153a142be4b617097dc2c1, type: 2}
+    - target: {fileID: 6178694752304319525, guid: 13399961e8ec83447b13ba808105146f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ee516d6ddd3271a48bd4937c2d089fb2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13399961e8ec83447b13ba808105146f, type: 3}
 --- !u!1 &705507993
@@ -373,8 +381,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.92
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -386,7 +394,7 @@ Light:
     m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_NearPlane: 0.1
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -430,13 +438,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: -0.49390143, y: 0.37398767, z: 0.07835668, w: -0.7810601}
+  m_LocalRotation: {x: 0.30818546, y: -0.05544506, z: -0.033015884, w: 0.9491352}
   m_LocalPosition: {x: 12.71, y: 2.25, z: 10.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 134.52701, y: -250.646, z: 135.463}
+  m_LocalEulerAnglesHint: {x: 144.454, y: 171.12, z: 893.164}
 --- !u!1001 &782369900
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -517,6 +525,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -589,6 +598,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 8.393, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1001 &1184037281
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -643,19 +683,31 @@ PrefabInstance:
     - target: {fileID: -3346553315662472714, guid: 93006320b41079a42819fdd78cd16629, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 68e9667a3594e2a45a6f7549b6ab3651, type: 2}
+      objectReference: {fileID: 2100000, guid: 5161f4a232b601847abff38986ec8070, type: 2}
+    - target: {fileID: -2079960036826294481, guid: 93006320b41079a42819fdd78cd16629, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5161f4a232b601847abff38986ec8070, type: 2}
     - target: {fileID: -1902313500343617683, guid: 93006320b41079a42819fdd78cd16629, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 68e9667a3594e2a45a6f7549b6ab3651, type: 2}
+      objectReference: {fileID: 2100000, guid: 0d8709c5247a49c46bdfa0a9de6da56f, type: 2}
     - target: {fileID: -673316361848864691, guid: 93006320b41079a42819fdd78cd16629, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 68e9667a3594e2a45a6f7549b6ab3651, type: 2}
+      objectReference: {fileID: 2100000, guid: e92987e5fe62dca4eb01784b16201917, type: 2}
     - target: {fileID: 919132149155446097, guid: 93006320b41079a42819fdd78cd16629, type: 3}
       propertyPath: m_Name
       value: Escudo Power Up
       objectReference: {fileID: 0}
+    - target: {fileID: 3859256295032282218, guid: 93006320b41079a42819fdd78cd16629, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e92987e5fe62dca4eb01784b16201917, type: 2}
+    - target: {fileID: 8009274462344510340, guid: 93006320b41079a42819fdd78cd16629, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0d8709c5247a49c46bdfa0a9de6da56f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93006320b41079a42819fdd78cd16629, type: 3}
 --- !u!1001 &1271411647
@@ -683,7 +735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 24b621e4df3b25e468b0858265e03dbc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.76
+      value: 7.33
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 24b621e4df3b25e468b0858265e03dbc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -691,7 +743,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 24b621e4df3b25e468b0858265e03dbc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 16.02
+      value: 13.9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 24b621e4df3b25e468b0858265e03dbc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -724,7 +776,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 24b621e4df3b25e468b0858265e03dbc, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 68e9667a3594e2a45a6f7549b6ab3651, type: 2}
+      objectReference: {fileID: 2100000, guid: aaa6bc25b8843b645bd6b0d06b707f79, type: 2}
     - target: {fileID: 919132149155446097, guid: 24b621e4df3b25e468b0858265e03dbc, type: 3}
       propertyPath: m_Name
       value: Rayo Power up
