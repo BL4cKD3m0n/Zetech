@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Piso
+  m_Name: Piso_EstalaDown
   m_Shader: {fileID: -6465566751694194690, guid: ad4e023d8be5e2346bfe41ca7553bf78, type: 3}
   m_ShaderKeywords: MAIN_LIGHT_CALCULATE_SHADOWS_MAIN_LIGHT_SHADOWS_CASCADE_SHADOWS_SOFT
   m_LightmapFlags: 4
@@ -65,7 +65,7 @@ Material:
     - Vector1_53D80ABD: 0
     - Vector1_54AE9F50: 0
     - Vector1_577DC8E6: 0.04
-    - Vector1_DC841FCD: 0
+    - Vector1_DC841FCD: 0.21
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -88,9 +88,9 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_480E31FE: {r: 0.5, g: 0.41957644, b: 0, a: 0}
+    - Color_480E31FE: {r: 0.764151, g: 0.764151, b: 0.764151, a: 0}
     - Color_98BA761B: {r: 0, g: 0, b: 0, a: 0}
-    - Color_E1B74A3D: {r: 0.3989409, g: 0.45807356, b: 0.5188679, a: 0}
+    - Color_E1B74A3D: {r: 0.7817729, g: 0.8561054, b: 0.9056604, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
