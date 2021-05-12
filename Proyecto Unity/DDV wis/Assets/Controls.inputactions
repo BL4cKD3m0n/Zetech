@@ -16,17 +16,6 @@
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "8ff2de62-a60b-4a51-b01d-56b71182dc84",
-                    "path": "<XInputController>/leftStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "WASD",
                     "id": "dfe9d6aa-ba92-4ea2-bd8c-c7f7e4ef65c0",
                     "path": "2DVector",
