@@ -27,8 +27,9 @@ public class PlayerControls : MonoBehaviour
 
         Vector3 movementVelocity = moveDirection;
         playerRigidbody.velocity = movementVelocity;
+        
 
-       
+
 
         Vector3 targetDirection = Vector3.zero;//rotacion
 

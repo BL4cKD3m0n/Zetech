@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputHandler : MonoBehaviour
+public class InputHandler2 : MonoBehaviour
 {
     public Vector2 InputVector { get; private set; }
     float h;
@@ -12,11 +12,11 @@ public class InputHandler : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             h = -1;
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.RightArrow))
         {
             h = 1;
         }
@@ -24,11 +24,11 @@ public class InputHandler : MonoBehaviour
         {
             h = 0;
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             v = -1;
         }
-        else if (Input.GetKey(KeyCode.W))
+        else if (Input.GetKey(KeyCode.UpArrow))
         {
             v = 1;
         }
