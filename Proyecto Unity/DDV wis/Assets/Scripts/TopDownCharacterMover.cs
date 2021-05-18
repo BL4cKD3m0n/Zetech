@@ -6,8 +6,11 @@ using UnityEngine;
 public class TopDownCharacterMover : MonoBehaviour
 {
     private InputHandler _input;
-    
-    
+
+    public float cooldowndash = 5;
+    private float nextDash = 0;
+    private float dashTime = 1;
+    private bool dashOn = false;
     [SerializeField]
     private float moveSpeed;
 
@@ -28,18 +31,35 @@ public class TopDownCharacterMover : MonoBehaviour
         //var movementVector=MoveTowardTarget(targetVector);
         Vector3 movementVector;
         
+        if(Time.time > nextDash)
+        {
+            if (Input.GetKey("r"))
+            {
+                if (Time.time > dashTime)
+                {
 
-        if (Input.GetKey("r"))
-        {
-            movementVector=Dash(targetVector);
-            RotateTowardMovementVector(movementVector);
+                    dashTime = Time.time + dashTime;
+                    dashOn = true;                    
+                }
+                nextDash = Time.time + cooldowndash;
+            }
+            
         }
-        else
+        if (dashOn == true)
         {
-            movementVector=MoveTowardTarget(targetVector);
-            RotateTowardMovementVector(movementVector);
+            moveSpeed = 20;
         }
+        if (Time.time > dashTime)
+        {
+            dashOn = false;
+        }
+       
         
+
+
+        movementVector = MoveTowardTarget(targetVector);
+        RotateTowardMovementVector(movementVector);
+
     }
     private void RotateTowardMovementVector(Vector3 movementVector)
     {

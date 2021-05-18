@@ -1778,6 +1778,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8222246256857344603, guid: 9332ee99fdd592b499f25db9216641e7, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 8272517706515075156, guid: 9332ee99fdd592b499f25db9216641e7, type: 3}
       propertyPath: m_Name
       value: Player 2
@@ -2368,6 +2372,10 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 8222246256857344603, guid: 9332ee99fdd592b499f25db9216641e7, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 8272517706515075156, guid: 9332ee99fdd592b499f25db9216641e7, type: 3}
       propertyPath: m_Name
       value: Player 1

@@ -50,8 +50,8 @@ public class TopDownCharacterMover2 : MonoBehaviour
     private Vector3 Dash(Vector3 tagetVector)
     {
 
-        var speed = 20 * Time.deltaTime;
-        tagetVector = Quaternion.Euler(0, camera.gameObject.transform.eulerAngles.y, 0) * tagetVector;
+        var speed = moveSpeed * Time.deltaTime;
+        tagetVector = Quaternion.Euler(0, camera.gameObject.transform.eulerAngles.y,0) * tagetVector;
         var targetPosition = transform.position + tagetVector * speed;
         transform.position = targetPosition;
         return tagetVector;
