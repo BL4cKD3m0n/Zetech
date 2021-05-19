@@ -7,9 +7,11 @@ public class TopDownCharacterMover : MonoBehaviour
 {
     private InputHandler _input;
 
+    public int player = 1;
     public float cooldowndash = 5;
     private float nextDash = 0;
-    private float dashTime = 1;
+    private float dashTime = 0;
+    private float dashDuration = 2;
     private bool dashOn = false;
     [SerializeField]
     private float moveSpeed;
@@ -38,21 +40,26 @@ public class TopDownCharacterMover : MonoBehaviour
                 if (Time.time > dashTime)
                 {
 
-                    dashTime = Time.time + dashTime;
+                    dashTime = Time.time + dashDuration;
                     dashOn = true;                    
                 }
                 nextDash = Time.time + cooldowndash;
             }
             
         }
+        if (Time.time < dashTime)
+        {
+            dashOn = false;
+        }
         if (dashOn == true)
         {
             moveSpeed = 20;
         }
-        if (Time.time > dashTime)
+        else
         {
-            dashOn = false;
+            moveSpeed = 4;
         }
+        
        
         
 

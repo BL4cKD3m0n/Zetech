@@ -6,7 +6,7 @@ using UnityEngine;
 public class TopDownCharacterMover2 : MonoBehaviour
 {
     private InputHandler2 _input;
-
+    public int player = 2;
 
     [SerializeField]
     private float moveSpeed;

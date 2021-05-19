@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Personaje
+  m_Name: piso verde
   m_Shader: {fileID: -6465566751694194690, guid: ad4e023d8be5e2346bfe41ca7553bf78, type: 3}
-  m_ShaderKeywords: MAIN_LIGHT_CALCULATE_SHADOWS_MAIN_LIGHT_SHADOWS_CASCADE_SHADOWS_SOFT
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -63,8 +63,7 @@ Material:
     - Vector1_3D624DA1: 0
     - Vector1_4BCDDF09: 0
     - Vector1_53D80ABD: 0
-    - Vector1_54AE9F50: 0
-    - Vector1_577DC8E6: -0.08
+    - Vector1_577DC8E6: 0
     - Vector1_DC841FCD: 0
     - _AlphaClip: 0
     - _Blend: 0
@@ -88,15 +87,14 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_480E31FE: {r: 0, g: 0.45575228, b: 0.990566, a: 0}
-    - Color_98BA761B: {r: 0, g: 0, b: 0, a: 0}
-    - Color_E1B74A3D: {r: 0.7960785, g: 0.86274517, b: 0.91372555, a: 0}
+    - Color_480E31FE: {r: 0.36320752, g: 0.6982375, b: 1, a: 0}
+    - Color_E1B74A3D: {r: 0, g: 1, b: 0.05740881, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &2070815936746300632
+--- !u!114 &5186352634323727391
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
