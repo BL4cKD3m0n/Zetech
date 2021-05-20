@@ -3,11 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class TopDownCharacterMover : MonoBehaviour
+public class TopDownCharacterMover : MonoBehaviour, IDamage
 {
     private InputHandler _input;
-
     public int player = 1;
 
     /*public float cooldowndash = 5;
@@ -38,6 +36,10 @@ public class TopDownCharacterMover : MonoBehaviour
     private float CoolDTemo = 5;
     private float NexUsT = 0;
 
+    public Transform PosDirecShoot;
+    public Transform Player;
+
+   
     [SerializeField]
     private bool CanMove;
     //
@@ -50,6 +52,12 @@ public class TopDownCharacterMover : MonoBehaviour
         AnimMov = GetComponentInChildren<Animator>();
         //
     }
+
+    public void DoDamage(int vld, bool isPlayer)
+    {
+        Debug.Log("He Recibido Pastelazo = " + vld + "isPlayer = " + isPlayer);
+    }
+
     void Update()
     {
         var targetVector = new Vector3(_input.InputVector.x, 0, _input.InputVector.y);
@@ -88,7 +96,23 @@ public class TopDownCharacterMover : MonoBehaviour
         RotateTowardMovementVector(movementVector);
 
         //Agregado por chucho, si hay duda o problema decirme plotz :c
-    
+
+        Debug.DrawRay(PosDirecShoot.position, PosDirecShoot.forward * 100f, Color.red);
+
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+
+            //GameObject PastelazoObj = Instantiate(PastelazoPrefab);
+            GameObject PastelazoObj = ObjectPoolingManager.instance.GetMunicion(true);
+
+            PastelazoObj.transform.position = PosDirecShoot.position;
+            Vector3 dir = Player.position + PosDirecShoot.forward * 10f;
+            PastelazoObj.transform.LookAt(dir);
+            //PastelazoObj.transform.rotation.x = PastelazoPrefab.transform.rotation.x;
+        
+        }
+
+
         if(Time.time > NexUsT)
         {
             if(Input.GetKeyDown(KeyCode.R))
@@ -196,7 +220,7 @@ public class TopDownCharacterMover : MonoBehaviour
 
     private void Dash()
     {
-        moveSpeed = DashLong;
+        moveSpeed = WalkSpeed * DashLong;
         AnimMov.SetTrigger("DashM");
     }
 
@@ -224,5 +248,6 @@ public class TopDownCharacterMover : MonoBehaviour
     {
         AnimMov.SetTrigger("VDT");
     }
+
     //
 }

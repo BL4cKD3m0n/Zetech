@@ -88,9 +88,9 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_480E31FE: {r: 0.764151, g: 0.764151, b: 0.764151, a: 0}
+    - Color_480E31FE: {r: 0.58708614, g: 0.7357043, b: 0.745283, a: 0}
     - Color_98BA761B: {r: 0, g: 0, b: 0, a: 0}
-    - Color_E1B74A3D: {r: 0.7817729, g: 0.8561054, b: 0.9056604, a: 0}
+    - Color_E1B74A3D: {r: 0.78039217, g: 0.85490197, b: 0.90588236, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0, g: 1, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
