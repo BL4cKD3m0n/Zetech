@@ -15,6 +15,60 @@ ModelImporter:
   - first:
       74: 770978845502241763
     second: Rigg_Personaje|M_Walk_CH_Animation
+  - first:
+      74: -7115754139035081368
+    second: Rigg_Personaje|Boring_CH_Animation
+  - first:
+      74: -7867325870001926451
+    second: Rigg_Personaje|Dap_CH_Animation
+  - first:
+      74: -8668024573804091411
+    second: Rigg_Personaje|Dash_CH_Animation
+  - first:
+      74: 829347970170579391
+    second: Rigg_Personaje|F_CH_Animation
+  - first:
+      74: 2614238658585152274
+    second: Rigg_Personaje|Injured_CH_Animation
+  - first:
+      74: 3735038139323339851
+    second: Rigg_Personaje|UsingPowerUp_CH_Animation
+  - first:
+      74: -7653959579910443640
+    second: Rigg_Personaje|MWal_CH_Animation
+  - first:
+      74: -7609448691237187107
+    second: Stand_CH_At
+  - first:
+      74: 2881284671907558599
+    second: Inicial_wCH_At
+  - first:
+      74: -4240180239270628627
+    second: Final_wCH_At
+  - first:
+      74: -2797183014370934035
+    second: Rigg_Personaje|Boring_CH_At
+  - first:
+      74: 7006849446580335362
+    second: Rigg_Personaje|Dap_CH_At
+  - first:
+      74: -696391519455878062
+    second: Rigg_Personaje|Dash_CH_At
+  - first:
+      74: 898625577452214732
+    second: Rigg_Personaje|F_CH_At
+  - first:
+      74: 5826851416243762883
+    second: Rigg_Personaje|Injured_CH_At
+  - first:
+      74: 4911775630606633274
+    second: Rigg_Personaje|Medium_wCH_At
+  - first:
+      74: -7983605985373171240
+    second: Rigg_Personaje|UsingPowerUp_CH_At
+  - first:
+      74: 5315180561343243672
+    second: Rigg_Personaje|VDance_CH_At
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -44,8 +98,37 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: I_Walk_CH_Animation
-      takeName: I_Walk_CH_Animation
+      name: Stand_CH_At
+      takeName: Stand_CH_At
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 239
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Inicial_wCH_At
+      takeName: Inicial_wCH_At
       internalID: 0
       firstFrame: 0
       lastFrame: 26
@@ -55,7 +138,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -73,11 +156,40 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: M_Walk_CH_Animation
-      takeName: M_Walk_CH_Animation
+      name: Final_wCH_At
+      takeName: Final_wCH_At
       internalID: 0
       firstFrame: 0
-      lastFrame: 19
+      lastFrame: 73
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Rigg_Personaje|Boring_CH_At
+      takeName: Rigg_Personaje|Boring_CH_At
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 120
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -102,11 +214,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: F_Walk_CH_Animation
-      takeName: F_Walk_CH_Animation
+      name: Rigg_Personaje|Dap_CH_At
+      takeName: Rigg_Personaje|Dap_CH_At
       internalID: 0
       firstFrame: 0
-      lastFrame: 55
+      lastFrame: 66
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -131,11 +243,156 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Rigg_Personaje|M_Walk_CH_Animation
-      takeName: Rigg_Personaje|M_Walk_CH_Animation
+      name: Rigg_Personaje|Dash_CH_At
+      takeName: Rigg_Personaje|Dash_CH_At
       internalID: 0
       firstFrame: 0
-      lastFrame: 19
+      lastFrame: 37
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Rigg_Personaje|F_CH_At
+      takeName: Rigg_Personaje|F_CH_At
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 95
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Rigg_Personaje|Injured_CH_At
+      takeName: Rigg_Personaje|Injured_CH_At
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Rigg_Personaje|Medium_wCH_At
+      takeName: Rigg_Personaje|Medium_wCH_At
+      internalID: 0
+      firstFrame: 19
+      lastFrame: 37
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Rigg_Personaje|UsingPowerUp_CH_At
+      takeName: Rigg_Personaje|UsingPowerUp_CH_At
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Rigg_Personaje|VDance_CH_At
+      takeName: Rigg_Personaje|VDance_CH_At
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 82
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -179,9 +436,9 @@ ModelImporter:
     weldVertices: 1
     bakeAxisConversion: 0
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
+    skinWeightsMode: 1
+    maxBonesPerVertex: 11
+    minBoneWeight: 0.015
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
