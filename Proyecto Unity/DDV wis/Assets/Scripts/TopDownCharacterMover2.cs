@@ -92,7 +92,7 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
 
         if (Time.time > NexUsT)
         {
-            if (Input.GetKeyDown(KeyCode.Keypad0) || Input.GetKeyDown(KeyCode.Insert))
+            if (Input.GetKeyDown(KeyCode.Keypad0) || Input.GetKeyDown(KeyCode.Backspace))
             {
                 Attack();
                 NexUsT = Time.time + CoolDT;
@@ -101,7 +101,7 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
 
         if (Time.time > NexUsT)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
+            if (Input.GetKeyDown(KeyCode.Keypad4))
             {
                 Dap();
                 NexUsT = Time.time + CoolDTemo;
@@ -109,7 +109,7 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
         }
         if (Time.time > NexUsT)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha2))
+            if (Input.GetKeyDown(KeyCode.Keypad5))
             {
                 Boring();
                 NexUsT = Time.time + CoolDTemo;
@@ -117,7 +117,7 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
         }
         if (Time.time > NexUsT)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha3))
+            if (Input.GetKeyDown(KeyCode.Keypad6))
             {
                 FDance();
                 NexUsT = Time.time + CoolDTemo;
@@ -125,7 +125,7 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
         }
         if (Time.time > NexUsT)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha4))
+            if (Input.GetKeyDown(KeyCode.Keypad7))
             {
                 VictoryDance();
                 NexUsT = Time.time + CoolDTemo;
