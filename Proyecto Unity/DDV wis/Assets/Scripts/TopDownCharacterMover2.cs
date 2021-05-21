@@ -67,7 +67,7 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
 
         Debug.DrawRay(PosDirecShoot.position, PosDirecShoot.forward * 100f, Color.red);
 
-        if (Input.GetKeyDown(KeyCode.Keypad0) || Input.GetKeyDown(KeyCode.Insert))
+        if (Input.GetKeyDown(KeyCode.Keypad0) || Input.GetKeyDown(KeyCode.Space))
         {
 
             //GameObject PastelazoObj = Instantiate(PastelazoPrefab);
@@ -92,7 +92,7 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
 
         if (Time.time > NexUsT)
         {
-            if (Input.GetKeyDown(KeyCode.Keypad0) || Input.GetKeyDown(KeyCode.Backspace))
+            if (Input.GetKeyDown(KeyCode.Keypad0) || Input.GetKeyDown(KeyCode.Space))
             {
                 Attack();
                 NexUsT = Time.time + CoolDT;
@@ -148,7 +148,7 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
         transform.position = targetPosition;
 
         //Agregado por chucho, si hay duda o problema decirme plotz :c
-        if (tagetVector != Vector3.zero && !Input.GetKey(KeyCode.R))
+        if (tagetVector != Vector3.zero && !Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.Keypad1))
         {
             Walk();
         }
