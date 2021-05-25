@@ -3161,7 +3161,7 @@ MonoBehaviour:
   DashLong: 2
   PosDirecShoot: {fileID: 489671113}
   Player: {fileID: 427902607}
-  CanMove: 0
+  CanMove: 1
 --- !u!4 &427902607 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3236732118027296872, guid: e52705287273ad6469123e392f98c468, type: 3}
@@ -4647,11 +4647,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 963194227}
     - target: {fileID: -3050380024374994703, guid: e52705287273ad6469123e392f98c468, type: 3}
+      propertyPath: CanMove
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3050380024374994703, guid: e52705287273ad6469123e392f98c468, type: 3}
       propertyPath: DashLong
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -3050380024374994703, guid: e52705287273ad6469123e392f98c468, type: 3}
       propertyPath: WalkSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -3050380024374994703, guid: e52705287273ad6469123e392f98c468, type: 3}
+      propertyPath: RealMoveSP
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -3050380024374994703, guid: e52705287273ad6469123e392f98c468, type: 3}
+      propertyPath: RealWalkSP
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -3050380024374994703, guid: e52705287273ad6469123e392f98c468, type: 3}
@@ -4662,6 +4674,14 @@ PrefabInstance:
       propertyPath: PosDirecShoot
       value: 
       objectReference: {fileID: 1289319203}
+    - target: {fileID: -3050380024374994703, guid: e52705287273ad6469123e392f98c468, type: 3}
+      propertyPath: RealRotationSP
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 427902606, guid: e52705287273ad6469123e392f98c468, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 427902606, guid: e52705287273ad6469123e392f98c468, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
@@ -10766,6 +10786,10 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 427902606, guid: e52705287273ad6469123e392f98c468, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 427902606, guid: e52705287273ad6469123e392f98c468, type: 3}
       propertyPath: m_CollisionDetection
       value: 1

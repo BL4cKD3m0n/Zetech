@@ -15,6 +15,9 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
     private float rotateSpeed;
 
     [SerializeField]
+    private float RealRotationSP;   
+
+    [SerializeField]
     private Camera camera;
 
     //Agregado por chucho, si hay duda o problema decirme plotz :c
@@ -22,10 +25,15 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
     private float WalkSpeed;
 
     [SerializeField]
+    private float RealWalkSP;
+
+    [SerializeField]
     private float DashLong;
 
     private Animator AnimMov;
+//timesincelast
 
+    //no input
     private float CoolDT = 1.5f;
     private float CoolDTemo = 5;
     private float NexUsT = 0;
@@ -36,7 +44,7 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
 
 
     [SerializeField]
-    private bool CanMove;
+    private bool CanMove = true;
     //
 
     private void Awake()
@@ -55,6 +63,8 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
     }
     void Update()
     {
+        NexUsT = NexUsT + Time.deltaTime;
+
         var targetVector = new Vector3(_input.InputVector.x, 0, _input.InputVector.y);
 
         //var movementVector=MoveTowardTarget(targetVector);
@@ -70,7 +80,7 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
         if (Input.GetKeyDown(KeyCode.Keypad0) || Input.GetKeyDown(KeyCode.Space))
         {
 
-            //GameObject PastelazoObj = Instantiate(PastelazoPrefab);
+            
             GameObject PastelazoObj = ObjectPoolingManager.instance.GetMunicion(true);
 
             PastelazoObj.transform.position = PosDirecShoot.position;
@@ -78,8 +88,7 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
             PastelazoObj.transform.LookAt(dir);
             //PastelazoObj.transform.rotation.x = PastelazoPrefab.transform.rotation.x;
 
-        }
-
+        }       
 
         if (Time.time > NexUsT)
         {
@@ -90,12 +99,13 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
             }
         }
 
-        if (Time.time > NexUsT)
+        if (Time.deltaTime > NexUsT)
         {
             if (Input.GetKeyDown(KeyCode.Keypad0) || Input.GetKeyDown(KeyCode.Space))
             {
                 Attack();
-                NexUsT = Time.time + CoolDT;
+                NexUsT = Time.deltaTime + CoolDT;
+                
             }
         }
 
@@ -183,7 +193,7 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
     }
 
     private void Attack()
-    {
+    {      
         AnimMov.SetTrigger("AttackPW");
     }
 
@@ -205,6 +215,32 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
     private void VictoryDance()
     {
         AnimMov.SetTrigger("VDT");
+    }
+
+    private void DontMove()
+    {
+        if(NexUsT >= CoolDT)
+        {
+            rotateSpeed = RealRotationSP;
+            WalkSpeed = RealWalkSP;
+            moveSpeed = WalkSpeed;
+        }
+
+        if(CanMove == false)
+        {
+            WalkSpeed = 0;
+            moveSpeed = 0;
+            rotateSpeed = 0;
+            
+        }
+        if(CanMove == true)
+        {
+            
+            rotateSpeed = RealRotationSP;
+            WalkSpeed = RealWalkSP;
+            moveSpeed = WalkSpeed;
+
+        }
     }
 
     
