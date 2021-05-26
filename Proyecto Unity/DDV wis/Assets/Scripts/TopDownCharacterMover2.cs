@@ -38,6 +38,7 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
     private float CoolDT = 1.0f;
     private float CoolDTemo = 4;
     private float NexUsT = 0;
+    private float CoolDañoRecibido = 2.5f;
 
     public Transform PosDirecShoot;
     public Transform Player;
@@ -64,6 +65,8 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
 
         Debug.DrawRay(PosDirecShoot.position, PosDirecShoot.forward * 100f, Color.red); //rayo disparador
 
+
+        
         //Dash
         if (Time.time > IntervalTimeAT2) 
         {
@@ -237,9 +240,24 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
         Vector3 dir = Player.position + PosDirecShoot.forward * 10f;
         PastelazoObj.transform.LookAt(dir);
     }
-    public void DoDamage(int vld, bool isPlayer)
+    public void DoDamage(bool isPlayer)
     {
-        Debug.Log("He Recibido Pastelazo = " + vld + ", isPlayer = " + isPlayer);
+        Debug.Log("He Recibido Pastelazo " + " isPlayer = " + isPlayer);
+
+        if (Time.time > IntervalTimeAT2)
+        {
+            if (isPlayer == true)
+            {
+                DontMove(false);
+                AnimMov.SetTrigger("InjuredT");
+                IntervalTimeAT2 = Time.time + CoolDañoRecibido;
+            }
+            else
+            {
+                DontMove(true);
+            }
+        }
+
     }
 
     

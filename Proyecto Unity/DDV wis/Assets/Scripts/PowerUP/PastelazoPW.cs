@@ -13,9 +13,6 @@ public class PastelazoPW : MonoBehaviour
 
     float lifeTimer;
 
-    [SerializeField]
-    public int Timehurt = 10;
-
     public bool ShootByPlayer;
 
     // Start is called before the first frame update
@@ -53,7 +50,7 @@ public class PastelazoPW : MonoBehaviour
         IDamage damage = other.GetComponent<IDamage>();
         if(damage != null)
         {
-            damage.DoDamage(Timehurt, ShootByPlayer);
+            damage.DoDamage(ShootByPlayer);
         }
     }
 
