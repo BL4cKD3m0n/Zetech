@@ -3155,13 +3155,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: 1
   moveSpeed: 0
-  rotateSpeed: 15
-  camera: {fileID: 963194227}
   WalkSpeed: 8
+  rotateSpeed: 15
   DashLong: 2
+  CanMove: 1
+  camera: {fileID: 963194227}
+  RealRotationSP: 15
+  RealWalkSP: 8
   PosDirecShoot: {fileID: 489671113}
   Player: {fileID: 427902607}
-  CanMove: 1
 --- !u!4 &427902607 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3236732118027296872, guid: e52705287273ad6469123e392f98c468, type: 3}
