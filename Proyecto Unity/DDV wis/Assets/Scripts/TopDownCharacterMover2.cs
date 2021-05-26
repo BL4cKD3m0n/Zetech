@@ -34,9 +34,9 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
 
     private Animator AnimMov;
 
-    private float IntervalTimeAT =0;
+    private float IntervalTimeAT2 = 0;
     private float CoolDT = 1.0f;
-    private float CoolDTemo = 5;
+    private float CoolDTemo = 4;
     private float NexUsT = 0;
 
     public Transform PosDirecShoot;
@@ -63,25 +63,27 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
         RotateTowardMovementVector(movementVector);
 
         Debug.DrawRay(PosDirecShoot.position, PosDirecShoot.forward * 100f, Color.red); //rayo disparador
-       
-        if (Time.time > IntervalTimeAT) //Dash
+
+        //Dash
+        if (Time.time > IntervalTimeAT2) 
         {
             if (Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.Keypad1))
             {
                 moveSpeed = WalkSpeed * DashLong;
                 Dash();
-                IntervalTimeAT = Time.time + CoolDT;
+                IntervalTimeAT2 = Time.time + CoolDT;
             }
-        } 
-        
-        if (Time.time > IntervalTimeAT) //Attack CoolDown, animation, stop and play
+        }
+
+        //Attack CoolDown, animation, stop and play
+        if (Time.time > IntervalTimeAT2) 
         {
             if (Input.GetKeyDown(KeyCode.Keypad0) || Input.GetKeyDown(KeyCode.Space))
             {
                 PastelazoObjectUse();
                 DontMove(false);               
                 Attack();               
-                IntervalTimeAT = Time.time + CoolDT;
+                IntervalTimeAT2 = Time.time + CoolDT;
             }
             else
             {               
@@ -89,52 +91,62 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
             }
         }
 
-        if (Time.time > IntervalTimeAT) //Emotes
+        //Dap
+        if (Time.time > IntervalTimeAT2) 
         {
             if (Input.GetKeyDown(KeyCode.Keypad4) || Input.GetKeyDown(KeyCode.J))
             {
                 DontMove(false);
                 Dap();
-                IntervalTimeAT = Time.time + CoolDTemo;
+                IntervalTimeAT2 = Time.time + CoolDTemo;
             }
             else
             {
                 DontMove(true);
-            }
-
+            }            
+        }
+        //Boring
+        if (Time.time > IntervalTimeAT2)
+        {
             if (Input.GetKeyDown(KeyCode.Keypad5) || Input.GetKeyDown(KeyCode.K))
             {
                 DontMove(false);
                 Boring();
-                IntervalTimeAT = Time.time + CoolDTemo;
+                IntervalTimeAT2 = Time.time + CoolDTemo;
             }
             else
             {
                 DontMove(true);
             }
-
+        }
+        //FDance
+        if (Time.time > IntervalTimeAT2)
+        {
             if (Input.GetKeyDown(KeyCode.Keypad6) || Input.GetKeyDown(KeyCode.L))
             {
                 DontMove(false);
                 FDance();
-                IntervalTimeAT = Time.time + CoolDTemo;
+                IntervalTimeAT2 = Time.time + CoolDTemo;
             }
             else
             {
                 DontMove(true);
             }
-
+        }
+        //VictoryDance
+        if (Time.time > IntervalTimeAT2)
+        {
             if (Input.GetKeyDown(KeyCode.Keypad7) || Input.GetKeyDown(KeyCode.I))
             {
                 DontMove(false);
                 VictoryDance();
-                IntervalTimeAT = Time.time + CoolDTemo;
+                IntervalTimeAT2 = Time.time + CoolDTemo;
             }
             else
             {
                 DontMove(true);
             }
-        }  
+        }       
     }
 
     private void RotateTowardMovementVector(Vector3 movementVector)

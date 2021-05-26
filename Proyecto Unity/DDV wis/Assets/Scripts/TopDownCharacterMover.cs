@@ -33,9 +33,9 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
 
     private Animator AnimMov;
 
-    private float IntervalTimeAT = 0;
+    private float IntervalTimeAT1 = 0;
     private float CoolDT = 1.0f;
-    private float CoolDTemo = 5;
+    private float CoolDTemo = 4;
     private float NexUsT = 0;
 
     public Transform PosDirecShoot;
@@ -62,7 +62,8 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
 
         Debug.DrawRay(PosDirecShoot.position, PosDirecShoot.forward * 100f, Color.red); //rayo disparador
 
-        if (Time.time > NexUsT) //Dash
+        //Dash
+        if (Time.time > NexUsT) 
         {
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
@@ -71,14 +72,15 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
             }
         }
 
-        if (Time.time > IntervalTimeAT) //Attack CoolDown, animation, stop and play
+        //Attack CoolDown, animation, stop and play
+        if (Time.time > IntervalTimeAT1) 
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 PastelazoObjectUse();
                 DontMove(false);
                 Attack();
-                IntervalTimeAT = Time.time + CoolDT;
+                IntervalTimeAT1 = Time.time + CoolDT;
             }
             else
             {
@@ -86,46 +88,56 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
             }
         }
 
-        if (Time.time > IntervalTimeAT) //Emotes
+        //Dap
+        if (Time.time > IntervalTimeAT1) 
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 DontMove(false);
                 Dap();
-                IntervalTimeAT = Time.time + CoolDTemo;
+                IntervalTimeAT1 = Time.time + CoolDTemo;
             }
             else
             {
                 DontMove(true);
             }
-
+        }
+        //Boring
+        if (Time.time > IntervalTimeAT1) 
+        {
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 DontMove(false);
                 Boring();
-                IntervalTimeAT = Time.time + CoolDTemo;
+                IntervalTimeAT1 = Time.time + CoolDTemo;
             }
             else
             {
                 DontMove(true);
             }
-
+        }
+        //FDance
+        if (Time.time > IntervalTimeAT1) 
+        {
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 DontMove(false);
                 FDance();
-                IntervalTimeAT = Time.time + CoolDTemo;
+                IntervalTimeAT1 = Time.time + CoolDTemo;
             }
             else
             {
                 DontMove(true);
             }
-
+        }
+        //VictoryDance
+        if (Time.time > IntervalTimeAT1) 
+        {
             if (Input.GetKeyDown(KeyCode.Alpha4))
             {
                 DontMove(false);
                 VictoryDance();
-                IntervalTimeAT = Time.time + CoolDTemo;
+                IntervalTimeAT1 = Time.time + CoolDTemo;
             }
             else
             {
@@ -133,7 +145,7 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
             }
         }
     }
-        //
+
     private void RotateTowardMovementVector(Vector3 movementVector)
     {
         if (movementVector.magnitude == 0) { return; }

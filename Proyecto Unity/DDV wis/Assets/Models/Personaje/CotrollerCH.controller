@@ -114,7 +114,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Rigg_Personaje|VDance_CH_At
-  m_Speed: 1
+  m_Speed: 0.6833
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -7564048659828816635}
@@ -172,7 +172,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Rigg_Personaje|F_CH_At
-  m_Speed: 1
+  m_Speed: 0.791
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -1327700765676312513}
@@ -407,22 +407,22 @@ AnimatorStateMachine:
     m_Position: {x: 350, y: 100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7520391779975114409}
-    m_Position: {x: 380, y: 520, z: 0}
+    m_Position: {x: 220, y: 360, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8367067602511518315}
     m_Position: {x: 110, y: 310, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7055923053962136193}
-    m_Position: {x: 480, y: 570, z: 0}
+    m_Position: {x: 660, y: 440, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5059083171686878931}
-    m_Position: {x: 880, y: 470, z: 0}
+    m_Position: {x: 490, y: 390, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2214497541549657691}
-    m_Position: {x: 300, y: 470, z: 0}
+    m_Position: {x: 440, y: 440, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6687255324573341139}
-    m_Position: {x: 690, y: 570, z: 0}
+    m_Position: {x: 700, y: 390, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -441,7 +441,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Rigg_Personaje|Dap_CH_At
-  m_Speed: 1
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1288070945358267204}
