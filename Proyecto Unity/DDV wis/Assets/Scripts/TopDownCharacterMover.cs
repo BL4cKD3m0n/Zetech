@@ -2,16 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TopDownCharacterMover : MonoBehaviour, IDamage
 {
     private InputHandler _input;
     public int player = 1;
     [SerializeField]
-    private float moveSpeed;
+    public float moveSpeed;
 
     [SerializeField]
-    private float WalkSpeed;
+    public float WalkSpeed;
 
     [SerializeField]
     private float rotateSpeed;
@@ -29,18 +30,22 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
     private float RealRotationSP;
 
     [SerializeField]
-    private float RealWalkSP;
+    public float RealWalkSP;
 
     private Animator AnimMov;
 
     private float IntervalTimeAT1 = 0;
+    private float IntervalTimeH = 0;
     private float CoolDT = 1.0f;
     private float CoolDTemo = 4;
-    private float NexUsT = 0;
+    private float CoolDash = 0.5f;
     private float CoolDañoRecibido = 2.5f;
 
     public Transform PosDirecShoot;
     public Transform Player;
+
+    public bool ChoqueH = false;
+    private float CoolPwHer = 4f;
 
     private void Awake()
     {
@@ -63,13 +68,26 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
 
         Debug.DrawRay(PosDirecShoot.position, PosDirecShoot.forward * 100f, Color.red); //rayo disparador
 
+        if (Time.time > IntervalTimeH)
+        {
+            if (ChoqueH == true)
+            {
+                WalkSpeed *= 1.8f;
+                IntervalTimeH = Time.time + CoolPwHer;
+                ChoqueH = false;
+            }            
+            
+            //WalkSpeed = RealWalkSP;
+        }
+
         //Dash
-        if (Time.time > NexUsT) 
+        if (Time.time > IntervalTimeAT1) 
         {
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
+                WalkSpeed *= DashLong;
                 Dash();
-                NexUsT = Time.time + CoolDT;
+                IntervalTimeAT1 = Time.time + CoolDash;
             }
         }
 
@@ -189,7 +207,6 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
 
     private void Dash()
     {
-        moveSpeed = WalkSpeed * DashLong;
         AnimMov.SetTrigger("DashM");
     }
     private void Attack()
@@ -254,5 +271,21 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
             }
         }
      
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        PW_Ups Hermes = other.GetComponent<PW_Ups>();
+        if (Hermes != null)
+        {
+            float res = Hermes.GetEffects();
+            if (Hermes.getID() == (int)PW_UpsID.VELOX2)
+            {
+                //WalkSpeed *= res;
+                //Canvas controller para que aparezca imagen dependiendo del pewi este que agarre de Pw ups
+                ChoqueH = true;
+            }
+
+        }
     }
 }

@@ -15,6 +15,12 @@ public class Piso : MonoBehaviour
         rend.enabled = true;
         rend.sharedMaterial = material[x];
     }
+
+    public void Awake()
+    {
+
+    }
+
     void Update()
     {
         rend.sharedMaterial = material[x];
@@ -30,4 +36,8 @@ public class Piso : MonoBehaviour
             x = 2;
         }
     }
+
+    //OnCollisionEnter
+
+
 }

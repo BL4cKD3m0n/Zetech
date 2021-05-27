@@ -7,8 +7,8 @@ TagManager:
   - piso
   - Player2
   - Player1
-  - Opciones
   - PanelPausa
+  - PanelWinner
   layers:
   - Default
   - TransparentFX

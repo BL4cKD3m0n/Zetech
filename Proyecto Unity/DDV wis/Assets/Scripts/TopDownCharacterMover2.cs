@@ -9,10 +9,10 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
     public int player = 2;
 
     [SerializeField]
-    private float moveSpeed;
+    public float moveSpeed;
 
     [SerializeField]
-    private float WalkSpeed;
+    public float WalkSpeed;
 
     [SerializeField]
     private float rotateSpeed;
@@ -30,14 +30,14 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
     private float RealRotationSP;
 
     [SerializeField]
-    private float RealWalkSP;
+    public float RealWalkSP;
 
     private Animator AnimMov;
 
     private float IntervalTimeAT2 = 0;
     private float CoolDT = 1.0f;
     private float CoolDTemo = 4;
-    private float NexUsT = 0;
+    private float CoolDash = 0.5f;
     private float CoolDañoRecibido = 2.5f;
 
     public Transform PosDirecShoot;
@@ -66,15 +66,15 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
         Debug.DrawRay(PosDirecShoot.position, PosDirecShoot.forward * 100f, Color.red); //rayo disparador
 
 
-        
+
         //Dash
-        if (Time.time > IntervalTimeAT2) 
+        if (Time.time > IntervalTimeAT2)
         {
             if (Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.Keypad1))
             {
-                moveSpeed = WalkSpeed * DashLong;
+                WalkSpeed *= DashLong;
                 Dash();
-                IntervalTimeAT2 = Time.time + CoolDT;
+                IntervalTimeAT2 = Time.time + CoolDash;
             }
         }
 

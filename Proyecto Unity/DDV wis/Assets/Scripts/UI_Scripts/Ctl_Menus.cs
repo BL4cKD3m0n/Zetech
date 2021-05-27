@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControllerOptions : MonoBehaviour
+public class Ctl_Menus : MonoBehaviour
 {
-    public GameObject PantallaOpciones;
-
+    public GameObject PantallaPausa;
+    public GameObject PantallaWinner;
     // Start is called before the first frame update
     void Start()
     {

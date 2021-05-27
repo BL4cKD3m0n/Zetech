@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hermes_Velocity : MonoBehaviour
+public class Hermes_Velocity : MonoBehaviour, PW_Ups //Ibox
 {
 
     public Transform Hermes;
 
     [SerializeField]
-    private float RotationSpeed =20f;
+    private float RotationSpeed = 20f;
 
     [SerializeField]
-    private float VelocityOb = 1.5f;
+    private float VelocityOb = 1.8f;
 
     [SerializeField]
     public float LifeDurationH;
 
     float lifeTimer;
-    
+
     //Start
     private void Start()
     {
@@ -31,12 +31,20 @@ public class Hermes_Velocity : MonoBehaviour
         Hermes.Rotate(Vector3.up * RotationSpeed * Time.deltaTime);
 
         lifeTimer -= Time.deltaTime;
-        if(lifeTimer <= 0)
+        if (lifeTimer <= 0)
         {
             gameObject.SetActive(false);
         }
 
-         
+    }
 
+    int PW_Ups.getID()
+    {
+        return (int)PW_UpsID.VELOX2;
+    }
+
+    float PW_Ups.GetEffects()
+    {
+        return VelocityOb;
     }
 }
