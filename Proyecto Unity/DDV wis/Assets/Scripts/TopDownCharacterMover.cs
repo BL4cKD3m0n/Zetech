@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class TopDownCharacterMover : MonoBehaviour, IDamage
 {
     private InputHandler _input;
+
     public int player = 1;
+
     [SerializeField]
     public float moveSpeed;
 
@@ -26,27 +28,27 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
     [SerializeField]
     private Camera camera;
 
-    [SerializeField]
-    private float RealRotationSP;
+    
 
-    [SerializeField]
-    public float RealWalkSP;
+    
+    
 
     private Animator AnimMov;
 
     private float IntervalTimeAT1 = 0;
-    private float IntervalTimeH = 0;
+    
     private float CoolDT = 1.0f;
     private float CoolDTemo = 4;
     private float CoolDash = 0.5f;
     private float CoolDañoRecibido = 2.5f;
+    
 
     public Transform PosDirecShoot;
     public Transform Player;
-    //private Hermes_Velocity hermes;
+    
 
     public bool ChoqueH = false;
-    private float CoolPwHer = 4f;
+    
 
     private void Awake()
     {
@@ -54,8 +56,7 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
 
         //Agregado por chucho, si hay duda o problema decirme plotz :c
         AnimMov = GetComponentInChildren<Animator>();
-        //hermes = new Hermes_Velocity();
-        //
+        
     }
 
     void Update()
@@ -65,28 +66,12 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
         //var movementVector=MoveTowardTarget(targetVector);
         Vector3 movementVector;
 
-        movementVector = MoveTowardTarget(targetVector);
+        movementVector = MoveTowardTarget(targetVector,CanMove);
         RotateTowardMovementVector(movementVector);
 
         Debug.DrawRay(PosDirecShoot.position, PosDirecShoot.forward * 100f, Color.red); //rayo disparador
 
-       /*if (Time.time >= IntervalTimeH)
-        {
-            if (ChoqueH == true)
-            {
-                Debug.Log("hastaaqui funciona");
-                WalkSpeed *= 1.8f;
-                IntervalTimeH = Time.time + CoolPwHer;
-                ChoqueH = false;
-            }
-            
-
-            //WalkSpeed = RealWalkSP;
-        }
-        else
-        {
-            WalkSpeed /= 1.8f;
-        }*/
+       
 
 
         //Dash
@@ -106,13 +91,15 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 PastelazoObjectUse();
-                DontMove(false);
+                
+                CanMove = false;
                 Attack();
                 IntervalTimeAT1 = Time.time + CoolDT;
             }
             else
             {
-                DontMove(true);
+                //DontMove(true);
+                CanMove = true;
             }
         }
 
@@ -121,13 +108,14 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                DontMove(false);
+                
+                CanMove = false;
                 Dap();
                 IntervalTimeAT1 = Time.time + CoolDTemo;
             }
             else
             {
-                DontMove(true);
+                CanMove = true;
             }
         }
         //Boring
@@ -135,13 +123,13 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
         {
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                DontMove(false);
+                CanMove = false;
                 Boring();
                 IntervalTimeAT1 = Time.time + CoolDTemo;
             }
             else
             {
-                DontMove(true);
+                CanMove = true;
             }
         }
         //FDance
@@ -149,13 +137,13 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
         {
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
-                DontMove(false);
+                CanMove = false;
                 FDance();
                 IntervalTimeAT1 = Time.time + CoolDTemo;
             }
             else
             {
-                DontMove(true);
+                CanMove = true;
             }
         }
         //VictoryDance
@@ -163,13 +151,13 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
         {
             if (Input.GetKeyDown(KeyCode.Alpha4))
             {
-                DontMove(false);
+                CanMove = false;
                 VictoryDance();
                 IntervalTimeAT1 = Time.time + CoolDTemo;
             }
             else
             {
-                DontMove(true);
+                CanMove = true;
             }
         }
     }
@@ -181,24 +169,28 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
         transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotateSpeed);
     }
 
-    private Vector3 MoveTowardTarget(Vector3 tagetVector)
+    private Vector3 MoveTowardTarget(Vector3 tagetVector, bool canmove)
     {
         var speed = moveSpeed * Time.deltaTime;
         tagetVector = Quaternion.Euler(0, camera.gameObject.transform.eulerAngles.y, 0) * tagetVector;
         var targetPosition = transform.position + tagetVector * speed;
         transform.position = targetPosition;
-
-        //Agregado por chucho, si hay duda o problema decirme plotz :c
-        if (tagetVector != Vector3.zero && !Input.GetKey(KeyCode.R))
+        if (canmove==false)
         {
-            Walk();
+            tagetVector = Vector3.zero;
         }
-        else if (tagetVector == Vector3.zero)
+        else if (canmove == true)
         {
-            Idle();
+            if (tagetVector != Vector3.zero && !Input.GetKey(KeyCode.R))
+            {
+                Walk();
+            }
+            else if (tagetVector == Vector3.zero)
+            {
+                Idle();
+            }
         }
         
-        //
         return tagetVector;
 
     }
@@ -209,8 +201,7 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
         moveSpeed = WalkSpeed;
     }
     private void Idle()
-    {
-        moveSpeed = 0.0f;
+    {        
         AnimMov.SetFloat("ActionMove", 0.1f);
     }
 
@@ -240,20 +231,7 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
         AnimMov.SetTrigger("VDT");
     }
 
-    public void DontMove(bool CanMove)
-    {
-        if (CanMove == false)
-        {
-            WalkSpeed = 0;
-            moveSpeed = 0;
-            rotateSpeed = 0;
-        }
-        if (CanMove == true)
-        {
-            rotateSpeed = RealRotationSP;
-            WalkSpeed = RealWalkSP;
-        }
-    }
+    
     public void PastelazoObjectUse()
     {
         GameObject PastelazoObj = ObjectPoolingManager.instance.GetMunicion(true);
@@ -270,42 +248,18 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
         {
             if (isPlayer == true)
             {
-                DontMove(false);
+                CanMove = false;
                 AnimMov.SetTrigger("InjuredT");
                 IntervalTimeAT1 = Time.time + CoolDañoRecibido;
             }
             else
             {
-                DontMove(true);
+                CanMove = true;
             }
         }
      
     }
-    public void hermesS()
-    {
-        ChoqueH = true;
-        WalkSpeed *= 1.8f;
-    }
+    
 
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("hermes"))
-        {
-            Debug.Log("Recogi power Up: Hermes");
-            hermesS();
 
-        }
-        /*PW_Ups HermesCol = other.GetComponent<PW_Ups>();
-        if (HermesCol != null)
-        {
-            //float res = HermesCol.GetEffects();
-            if (HermesCol.getID() == (int)PW_UpsID.VELOX2)
-            {
-                WalkSpeed *= hermes.VelocityOb;
-                //Canvas controller para que aparezca imagen dependiendo del pewi este que agarre de Pw ups
-                ChoqueH = true;
-            }
-
-        }
-    }*/
 }

@@ -2,21 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rayo : MonoBehaviour
+public class Rayo : MonoBehaviour
 {
-    public Transform Rayo;
+    public Transform rayo;
 
     [SerializeField]
     public float RotationSpeed = 20f;
 
-
     [SerializeField]
-    public float VelocityOb = 0f;
+    public float VelocityOb = 1.8f;
 
     [SerializeField]
     public float LifeDurationH;
     public TopDownCharacterMover tp1;
-    public TopDownCharacterMover2 tp2;
+    public TopDownCharacterMover tp2;
     public int x = 0;
 
     float lifeTimer;
@@ -29,7 +28,8 @@ public class rayo : MonoBehaviour
     {
         lifeTimer = LifeDurationH;
         tp1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<TopDownCharacterMover>();
-        tp2 = GameObject.FindGameObjectWithTag("Player1").GetComponent<TopDownCharacterMover2>();
+        tp2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<TopDownCharacterMover>();
+
 
     }
 
@@ -37,7 +37,7 @@ public class rayo : MonoBehaviour
     void Update()
     {
 
-        Rayo.Rotate(Vector3.up * RotationSpeed * Time.deltaTime);
+        rayo.Rotate(Vector3.up * RotationSpeed * Time.deltaTime);
 
         lifeTimer -= Time.deltaTime;
         if (lifeTimer <= 0)
@@ -59,14 +59,15 @@ public class rayo : MonoBehaviour
     {
         if (x == 1)
         {
-            tp2.WalkSpeed = 0;
+            Debug.Log("Recogi power Up: Hermes");
+            tp2.WalkSpeed = 0f;
             Destroy(gameObject);
             yield return new WaitForSeconds(4);
             tp2.WalkSpeed = 8f;
-            Debug.Log("Recogi power Up: Rayo");
         }
         
-        
+
+        //Instantiate(DS_Hermes, transform.position, transform.rotation);
 
 
     }

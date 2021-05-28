@@ -53,24 +53,21 @@ public class Hermes_Velocity : MonoBehaviour// PW_Ups //Ibox
     }
    IEnumerator EfecctHermes()
     {
-        tp1.WalkSpeed *=VelocityOb;
+        
+        Debug.Log("Recogi power Up: Hermes");
+        tp1.WalkSpeed *=1.8f;
         Destroy(gameObject);
         yield return new WaitForSeconds(4);
         tp1.WalkSpeed /= 1.8f;
-        Debug.Log("Recogi power Up: Hermes");
-        //Instantiate(DS_Hermes, transform.position, transform.rotation);
+        Debug.Log("power up end");
+        
         
 
+        //Instantiate(DS_Hermes, transform.position, transform.rotation);
+
+
     }
 
-    /*int PW_Ups.getID()
-    {
-        return (int)PW_UpsID.VELOX2;
-    }
-
-    float PW_Ups.GetEffects()
-    {
-        return VelocityOb;
-    }*/
+    
 
 }

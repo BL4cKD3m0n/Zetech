@@ -4682,6 +4682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 318bb8dad5494cc458de876d6250f996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tp: {fileID: 0}
 --- !u!114 &427902604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4701,8 +4702,6 @@ MonoBehaviour:
   DashLong: 1.8
   CanMove: 1
   camera: {fileID: 963194227}
-  RealRotationSP: 15
-  RealWalkSP: 8
   PosDirecShoot: {fileID: 489671113}
   Player: {fileID: 427902607}
   ChoqueH: 0
@@ -4758,12 +4757,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 431546936}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b53f85aba672e2428353de030d6134e, type: 3}
+  m_Script: {fileID: 11500000, guid: 5fe3c9891d561b040ac5e3253a64dbb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rayo: {fileID: 431546940}
+  rayo: {fileID: 431546940}
   RotationSpeed: 20
-  VelocityOb: 0
+  VelocityOb: 1.8
   LifeDurationH: 100
   tp1: {fileID: 0}
   tp2: {fileID: 0}
@@ -22195,6 +22194,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1129354381}
     m_Modifications:
+    - target: {fileID: 659505477, guid: 7e0a8114b15b14442bf25aa02c437067, type: 3}
+      propertyPath: VelocityOb
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 659505477, guid: 7e0a8114b15b14442bf25aa02c437067, type: 3}
+      propertyPath: LifeDurationH
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2309594082644243443, guid: 7e0a8114b15b14442bf25aa02c437067, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -22290,7 +22297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3236732118027296872, guid: e52705287273ad6469123e392f98c468, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.9
+      value: 1.92
       objectReference: {fileID: 0}
     - target: {fileID: 3236732118027296872, guid: e52705287273ad6469123e392f98c468, type: 3}
       propertyPath: m_LocalPosition.z
