@@ -4704,7 +4704,6 @@ MonoBehaviour:
   camera: {fileID: 963194227}
   PosDirecShoot: {fileID: 489671113}
   Player: {fileID: 427902607}
-  ChoqueH: 0
 --- !u!4 &427902607 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3236732118027296872, guid: e52705287273ad6469123e392f98c468, type: 3}
@@ -4760,12 +4759,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fe3c9891d561b040ac5e3253a64dbb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayo: {fileID: 431546940}
+  RayoObj: {fileID: 431546940}
   RotationSpeed: 20
-  VelocityOb: 1.8
-  LifeDurationH: 100
-  tp1: {fileID: 0}
-  tp2: {fileID: 0}
+  LifeDurationH: 10
+  EffectDuration: 4
+  ActivateMove: 0
+  ActivateMove2: 0
+  Player1: {fileID: 427902601}
+  Player2: {fileID: 654337788}
   x: 0
 --- !u!4 &431546940 stripped
 Transform:
@@ -6493,7 +6494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 427902606, guid: e52705287273ad6469123e392f98c468, type: 3}
       propertyPath: m_Mass
-      value: 130
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 427902606, guid: e52705287273ad6469123e392f98c468, type: 3}
       propertyPath: m_CollisionDetection
@@ -19244,9 +19245,9 @@ MonoBehaviour:
   Respawn_Ps: {fileID: 932048576}
   Player1: {fileID: 427902601}
   Player2: {fileID: 654337788}
-  ScriptPj1: {fileID: 0}
-  ScriptPj2: {fileID: 0}
-  EfectoSg: 0
+  Duration: 4
+  ActivateMove: 0
+  ActivateMove2: 0
 --- !u!1 &1650799776
 GameObject:
   m_ObjectHideFlags: 0
@@ -22195,12 +22196,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 1129354381}
     m_Modifications:
     - target: {fileID: 659505477, guid: 7e0a8114b15b14442bf25aa02c437067, type: 3}
+      propertyPath: Player1
+      value: 
+      objectReference: {fileID: 427902601}
+    - target: {fileID: 659505477, guid: 7e0a8114b15b14442bf25aa02c437067, type: 3}
+      propertyPath: Player2
+      value: 
+      objectReference: {fileID: 654337788}
+    - target: {fileID: 659505477, guid: 7e0a8114b15b14442bf25aa02c437067, type: 3}
       propertyPath: VelocityOb
       value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 659505477, guid: 7e0a8114b15b14442bf25aa02c437067, type: 3}
       propertyPath: LifeDurationH
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2309594082644243443, guid: 7e0a8114b15b14442bf25aa02c437067, type: 3}
       propertyPath: m_RootOrder

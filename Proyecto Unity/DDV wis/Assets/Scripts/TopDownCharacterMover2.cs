@@ -8,49 +8,36 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
     private InputHandler2 _input;
     public int player = 2;
 
-    [SerializeField]
+
     public float moveSpeed;
 
-    [SerializeField]
     public float WalkSpeed;
-
     [SerializeField]
     private float rotateSpeed;
-
     [SerializeField]
     private float DashLong;
-    
-    [SerializeField]
+    private float RealWalk;
     public bool CanMove;
 
     [SerializeField]
     private Camera camera;
 
-    [SerializeField]
-    private float RealRotationSP;
-
-    [SerializeField]
-    public float RealWalkSP;
-
     private Animator AnimMov;
 
     private float IntervalTimeAT2 = 0;
-    private float CoolDT = 1.0f;
-    private float CoolDTemo = 4;
-    private float CoolDash = 0.5f;
-    private float CoolDañoRecibido = 2.5f;
+    private float CoolDT = 1.0f; //Cooldown Ataque
+    private float CoolDTemo = 4; //Cooldown Emojis
+    private float CoolDash = 0.5f; //Cooldown Dash
+    private float CoolDañoRecibido = 2.5f; //Cooldown Inhabilitado si te atacan
 
     public Transform PosDirecShoot;
     public Transform Player;
 
     private void Awake()
     {
+        RealWalk = WalkSpeed;
         _input = GetComponent<InputHandler2>();
-
-        //Agregado por chucho, si hay duda o problema decirme plotz :c
         AnimMov = GetComponentInChildren<Animator>();
-        //
-
     }
 
     void Update()
@@ -60,11 +47,10 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
         //var movementVector=MoveTowardTarget(targetVector);
         Vector3 movementVector;
 
-        movementVector = MoveTowardTarget(targetVector);
+        movementVector = MoveTowardTarget(targetVector, CanMove);
         RotateTowardMovementVector(movementVector);
 
         Debug.DrawRay(PosDirecShoot.position, PosDirecShoot.forward * 100f, Color.red); //rayo disparador
-
 
 
         //Dash
@@ -76,6 +62,10 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
                 Dash();
                 IntervalTimeAT2 = Time.time + CoolDash;
             }
+            else
+            {
+                WalkSpeed = RealWalk;
+            }
         }
 
         //Attack CoolDown, animation, stop and play
@@ -84,13 +74,14 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
             if (Input.GetKeyDown(KeyCode.Keypad0) || Input.GetKeyDown(KeyCode.Space))
             {
                 PastelazoObjectUse();
-                DontMove(false);               
+
+                CanMove = false;
                 Attack();               
                 IntervalTimeAT2 = Time.time + CoolDT;
             }
             else
-            {               
-                DontMove(true);
+            {
+                CanMove = true;
             }
         }
 
@@ -99,13 +90,13 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
         {
             if (Input.GetKeyDown(KeyCode.Keypad4) || Input.GetKeyDown(KeyCode.J))
             {
-                DontMove(false);
+                CanMove = false;
                 Dap();
                 IntervalTimeAT2 = Time.time + CoolDTemo;
             }
             else
             {
-                DontMove(true);
+                CanMove = true;
             }            
         }
         //Boring
@@ -113,13 +104,13 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
         {
             if (Input.GetKeyDown(KeyCode.Keypad5) || Input.GetKeyDown(KeyCode.K))
             {
-                DontMove(false);
+                CanMove = false;
                 Boring();
                 IntervalTimeAT2 = Time.time + CoolDTemo;
             }
             else
             {
-                DontMove(true);
+                CanMove = true;
             }
         }
         //FDance
@@ -127,13 +118,13 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
         {
             if (Input.GetKeyDown(KeyCode.Keypad6) || Input.GetKeyDown(KeyCode.L))
             {
-                DontMove(false);
+                CanMove = false;
                 FDance();
                 IntervalTimeAT2 = Time.time + CoolDTemo;
             }
             else
             {
-                DontMove(true);
+                CanMove = true;
             }
         }
         //VictoryDance
@@ -141,13 +132,13 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
         {
             if (Input.GetKeyDown(KeyCode.Keypad7) || Input.GetKeyDown(KeyCode.I))
             {
-                DontMove(false);
+                CanMove = false;
                 VictoryDance();
                 IntervalTimeAT2 = Time.time + CoolDTemo;
             }
             else
             {
-                DontMove(true);
+                CanMove = true;
             }
         }       
     }
@@ -158,25 +149,28 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
         var rotation = Quaternion.LookRotation(movementVector);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotateSpeed);
     }
-    private Vector3 MoveTowardTarget(Vector3 tagetVector)
+    private Vector3 MoveTowardTarget(Vector3 tagetVector, bool canmove)
     {
         var speed = moveSpeed * Time.deltaTime;
         tagetVector = Quaternion.Euler(0, camera.gameObject.transform.eulerAngles.y, 0) * tagetVector;
         var targetPosition = transform.position + tagetVector * speed;
         transform.position = targetPosition;
-
-
-        if (tagetVector != Vector3.zero && !Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.Keypad1))
+        if (canmove == false)
         {
-            Walk();
+            tagetVector = Vector3.zero;
         }
-        else if (tagetVector == Vector3.zero)
+        else if (canmove == true)
         {
-            Idle();
+            if (tagetVector != Vector3.zero && !Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.Keypad1))
+            {
+                Walk();
+            }
+            else if (tagetVector == Vector3.zero)
+            {
+                Idle();
+            }
         }
-
         return tagetVector;
-
     }
 
     private void Walk()
@@ -186,7 +180,6 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
     }
     private void Idle()
     {
-        moveSpeed = 0.0f;
         AnimMov.SetFloat("ActionMove", 0.1f);
     }
 
@@ -216,20 +209,6 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
         AnimMov.SetTrigger("VDT");
     }
 
-    public void DontMove(bool CanMove)
-    {
-        if(CanMove == false)
-        {
-            WalkSpeed = 0;
-            moveSpeed = 0;
-            rotateSpeed = 0;
-        }
-        if(CanMove == true)
-        {
-            rotateSpeed = RealRotationSP;
-            WalkSpeed = RealWalkSP;
-        }
-    }
     public void PastelazoObjectUse()
     {
         GameObject PastelazoObj = ObjectPoolingManager.instance.GetMunicion(true);
@@ -246,13 +225,13 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
         {
             if (isPlayer == true)
             {
-                DontMove(false);
+                CanMove = false;
                 AnimMov.SetTrigger("InjuredT");
                 IntervalTimeAT2 = Time.time + CoolDañoRecibido;
             }
             else
             {
-                DontMove(true);
+                CanMove = true;
             }
         }
 

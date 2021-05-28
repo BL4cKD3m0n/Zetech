@@ -2,61 +2,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class TopDownCharacterMover : MonoBehaviour, IDamage
 {
     private InputHandler _input;
-
     public int player = 1;
 
-    [SerializeField]
+
     public float moveSpeed;
 
-    [SerializeField]
     public float WalkSpeed;
-
     [SerializeField]
     private float rotateSpeed;
-
     [SerializeField]
     private float DashLong;
-
-    [SerializeField]
+    private float RealWalk;
     public bool CanMove;
 
     [SerializeField]
     private Camera camera;
 
-    
-
-    
-    
-
     private Animator AnimMov;
 
-    private float IntervalTimeAT1 = 0;
-    
-    private float CoolDT = 1.0f;
-    private float CoolDTemo = 4;
-    private float CoolDash = 0.5f;
-    private float CoolDañoRecibido = 2.5f;
-    
+    private float IntervalTimeAT1 = 0; 
+    private float CoolDT = 1.0f; //Cooldown Ataque
+    private float CoolDTemo = 4; //Cooldown Emojis
+    private float CoolDash = 0.5f;  //Cooldown Dash
+    private float CoolDañoRecibido = 2.5f;  //Cooldown Inhabilitado si te atacan
 
     public Transform PosDirecShoot;
     public Transform Player;
-    
-
-    public bool ChoqueH = false;
-    
 
     private void Awake()
     {
+        RealWalk = WalkSpeed;
         _input = GetComponent<InputHandler>();
-
-        //Agregado por chucho, si hay duda o problema decirme plotz :c
-        AnimMov = GetComponentInChildren<Animator>();
-        
+        AnimMov = GetComponentInChildren<Animator>();     
     }
 
     void Update()
@@ -71,9 +52,7 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
 
         Debug.DrawRay(PosDirecShoot.position, PosDirecShoot.forward * 100f, Color.red); //rayo disparador
 
-       
-
-
+      
         //Dash
         if (Time.time > IntervalTimeAT1) 
         {
@@ -82,6 +61,10 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
                 WalkSpeed *= DashLong;
                 Dash();
                 IntervalTimeAT1 = Time.time + CoolDash;
+            }
+            else
+            {
+                WalkSpeed = RealWalk;
             }
         }
 
@@ -98,7 +81,6 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
             }
             else
             {
-                //DontMove(true);
                 CanMove = true;
             }
         }
@@ -107,8 +89,7 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
         if (Time.time > IntervalTimeAT1) 
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                
+            {               
                 CanMove = false;
                 Dap();
                 IntervalTimeAT1 = Time.time + CoolDTemo;
@@ -168,7 +149,6 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
         var rotation = Quaternion.LookRotation(movementVector);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotateSpeed);
     }
-
     private Vector3 MoveTowardTarget(Vector3 tagetVector, bool canmove)
     {
         var speed = moveSpeed * Time.deltaTime;
@@ -189,10 +169,8 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
             {
                 Idle();
             }
-        }
-        
+        }      
         return tagetVector;
-
     }
 
     private void Walk()
@@ -231,7 +209,6 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
         AnimMov.SetTrigger("VDT");
     }
 
-    
     public void PastelazoObjectUse()
     {
         GameObject PastelazoObj = ObjectPoolingManager.instance.GetMunicion(true);

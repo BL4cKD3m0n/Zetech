@@ -12,7 +12,6 @@ public class InputHandler : MonoBehaviour
     private void Start()
     {
         tp = GameObject.FindGameObjectWithTag("Player1").GetComponent<TopDownCharacterMover>();
-
     }
 
     void Update()
@@ -46,9 +45,6 @@ public class InputHandler : MonoBehaviour
         }
         else { v = 0;h = 0; }
         
-       
-
         InputVector = new Vector2(h, v);
-
     }
 }

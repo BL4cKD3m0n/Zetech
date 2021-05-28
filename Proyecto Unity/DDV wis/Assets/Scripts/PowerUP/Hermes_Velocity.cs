@@ -2,32 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hermes_Velocity : MonoBehaviour// PW_Ups //Ibox
+public class Hermes_Velocity : MonoBehaviour
 {
     public Transform Hermes;
 
-    [SerializeField]
     public float RotationSpeed = 20f;
-
-    [SerializeField]
     public float VelocityOb = 1.8f;
-
-    [SerializeField]
     public float LifeDurationH;
-    public TopDownCharacterMover tp1;
-
     float lifeTimer;
+
     //public GameObject DS_Hermes;
-    
-    
+    public float EffectDuration = 4f;
+    public bool ActivateMove;
+    public bool ActivateMove2;
+    public GameObject Player1;
+    public GameObject Player2;
 
     //Start
     private void Start()
     {
         lifeTimer = LifeDurationH;
-        tp1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<TopDownCharacterMover>();
-        
-
     }
 
     // Update is called once per frame
@@ -42,32 +36,62 @@ public class Hermes_Velocity : MonoBehaviour// PW_Ups //Ibox
             gameObject.SetActive(false);
         }
 
+        if (ActivateMove == true)
+        {
+            StartCoroutine(EfecctHermes());           
+        }
+
+        if (ActivateMove2 == true)
+        {
+            StartCoroutine(EfecctHermes2());
+        }
+
     }
 
    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player1"))
         {
-            StartCoroutine(EfecctHermes());
+            ActivateMove = true;
+        }
+
+        if (other.CompareTag("Player2"))
+        {
+            ActivateMove2 = true;
         }
     }
    IEnumerator EfecctHermes()
     {
-        
-        Debug.Log("Recogi power Up: Hermes");
-        tp1.WalkSpeed *=1.8f;
+        TopDownCharacterMover ScriptPj1 = Player1.GetComponent<TopDownCharacterMover>();
+
+        ScriptPj1.WalkSpeed *= VelocityOb;
+
+        gameObject.transform.localScale = Vector3.zero; //Instantiate(DS_Hermes, transform.position, transform.rotation);
+
+        yield return new WaitForSeconds(EffectDuration);
+       
+        ScriptPj1.WalkSpeed *= VelocityOb;
+       
         Destroy(gameObject);
-        yield return new WaitForSeconds(4);
-        tp1.WalkSpeed /= 1.8f;
-        Debug.Log("power up end");
-        
-        
 
-        //Instantiate(DS_Hermes, transform.position, transform.rotation);
-
-
+        ActivateMove = false;     
     }
 
-    
+    IEnumerator EfecctHermes2()
+    {
+        TopDownCharacterMover2 ScriptPj2 = Player2.GetComponent<TopDownCharacterMover2>();
+
+        ScriptPj2.WalkSpeed *= VelocityOb;
+
+        gameObject.transform.localScale = Vector3.zero; //Instantiate(DS_Hermes, transform.position, transform.rotation);
+
+        yield return new WaitForSeconds(EffectDuration);
+
+        ScriptPj2.WalkSpeed *= VelocityOb;
+
+        Destroy(gameObject);
+
+        ActivateMove2 = false;
+    }
 
 }

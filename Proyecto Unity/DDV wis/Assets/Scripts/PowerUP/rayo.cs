@@ -2,47 +2,48 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rayo : MonoBehaviour
+public class rayo : MonoBehaviour
 {
-    public Transform rayo;
+    public Transform RayoObj;
 
-    [SerializeField]
     public float RotationSpeed = 20f;
-
-    [SerializeField]
-    public float VelocityOb = 1.8f;
-
-    [SerializeField]
     public float LifeDurationH;
-    public TopDownCharacterMover tp1;
-    public TopDownCharacterMover tp2;
-    public int x = 0;
-
     float lifeTimer;
-    //public GameObject DS_Hermes;
 
+    //public GameObject DS_Hermes;
+    public float EffectDuration = 4f;
+    public bool ActivateMove;
+    public bool ActivateMove2;
+    public GameObject Player1;
+    public GameObject Player2;
+    public int x = 0;
 
 
     //Start
     private void Start()
     {
         lifeTimer = LifeDurationH;
-        tp1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<TopDownCharacterMover>();
-        tp2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<TopDownCharacterMover>();
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        rayo.Rotate(Vector3.up * RotationSpeed * Time.deltaTime);
+        RayoObj.Rotate(Vector3.up * RotationSpeed * Time.deltaTime);
 
         lifeTimer -= Time.deltaTime;
         if (lifeTimer <= 0)
         {
             gameObject.SetActive(false);
+        }
+
+        if (ActivateMove == true)
+        {
+            StartCoroutine(EfecctRayo());
+        }
+
+        if (ActivateMove2 == true)
+        {
+            StartCoroutine(EfecctRayo2());
         }
 
     }
@@ -51,24 +52,53 @@ public class Rayo : MonoBehaviour
     {
         if (other.CompareTag("Player1"))
         {
-            StartCoroutine(EfecctRayo());
+            ActivateMove = true;
             x = 1;
+        }
+
+        if (other.CompareTag("Player2"))
+        {
+            ActivateMove2 = true;
+            x = 2;
         }
     }
     IEnumerator EfecctRayo()
     {
+        TopDownCharacterMover2 ScriptPj2 = Player2.GetComponent<TopDownCharacterMover2>();
+
         if (x == 1)
         {
-            Debug.Log("Recogi power Up: Hermes");
-            tp2.WalkSpeed = 0f;
+            ScriptPj2.CanMove = false;
+
+            gameObject.transform.localScale = Vector3.zero;
+
+            yield return new WaitForSeconds(EffectDuration);
+
+            ScriptPj2.CanMove = true;
+
             Destroy(gameObject);
-            yield return new WaitForSeconds(4);
-            tp2.WalkSpeed = 8f;
+
+            ActivateMove = false;
         }
-        
+    }
 
-        //Instantiate(DS_Hermes, transform.position, transform.rotation);
+    IEnumerator EfecctRayo2()
+    {
+        TopDownCharacterMover ScriptPj1 = Player1.GetComponent<TopDownCharacterMover>();
 
+        if (x == 1)
+        {
+            ScriptPj1.CanMove = false;
 
+            gameObject.transform.localScale = Vector3.zero;
+
+            yield return new WaitForSeconds(EffectDuration);
+
+            ScriptPj1.CanMove = true;
+
+            Destroy(gameObject);
+
+            ActivateMove2 = false;
+        }
     }
 }
