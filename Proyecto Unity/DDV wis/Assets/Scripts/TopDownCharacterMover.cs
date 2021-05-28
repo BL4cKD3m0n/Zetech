@@ -35,7 +35,7 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
     private Animator AnimMov;
 
     private float IntervalTimeAT1 = 0;
-    //private float IntervalTimeH = 0;
+    private float IntervalTimeH = 0;
     private float CoolDT = 1.0f;
     private float CoolDTemo = 4;
     private float CoolDash = 0.5f;
@@ -43,9 +43,10 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
 
     public Transform PosDirecShoot;
     public Transform Player;
+    //private Hermes_Velocity hermes;
 
-    //public bool ChoqueH = false;
-    //private float CoolPwHer = 4f;
+    public bool ChoqueH = false;
+    private float CoolPwHer = 4f;
 
     private void Awake()
     {
@@ -53,6 +54,7 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
 
         //Agregado por chucho, si hay duda o problema decirme plotz :c
         AnimMov = GetComponentInChildren<Animator>();
+        //hermes = new Hermes_Velocity();
         //
     }
 
@@ -68,17 +70,24 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
 
         Debug.DrawRay(PosDirecShoot.position, PosDirecShoot.forward * 100f, Color.red); //rayo disparador
 
-        /*if (Time.time > IntervalTimeH)
+       /*if (Time.time >= IntervalTimeH)
         {
             if (ChoqueH == true)
             {
+                Debug.Log("hastaaqui funciona");
                 WalkSpeed *= 1.8f;
                 IntervalTimeH = Time.time + CoolPwHer;
                 ChoqueH = false;
-            }            
+            }
             
+
             //WalkSpeed = RealWalkSP;
+        }
+        else
+        {
+            WalkSpeed /= 1.8f;
         }*/
+
 
         //Dash
         if (Time.time > IntervalTimeAT1) 
@@ -272,16 +281,27 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
         }
      
     }
+    public void hermesS()
+    {
+        ChoqueH = true;
+        WalkSpeed *= 1.8f;
+    }
 
     /*private void OnTriggerEnter(Collider other)
     {
-        PW_Ups HermesCol = other.GetComponent<PW_Ups>();
+        if (other.CompareTag("hermes"))
+        {
+            Debug.Log("Recogi power Up: Hermes");
+            hermesS();
+
+        }
+        /*PW_Ups HermesCol = other.GetComponent<PW_Ups>();
         if (HermesCol != null)
         {
-            float res = HermesCol.GetEffects();
+            //float res = HermesCol.GetEffects();
             if (HermesCol.getID() == (int)PW_UpsID.VELOX2)
             {
-                WalkSpeed *= res;
+                WalkSpeed *= hermes.VelocityOb;
                 //Canvas controller para que aparezca imagen dependiendo del pewi este que agarre de Pw ups
                 ChoqueH = true;
             }

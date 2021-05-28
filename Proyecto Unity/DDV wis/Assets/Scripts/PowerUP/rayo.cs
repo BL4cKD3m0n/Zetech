@@ -2,31 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hermes_Velocity : MonoBehaviour// PW_Ups //Ibox
+public class rayo : MonoBehaviour
 {
-    public Transform Hermes;
+    public Transform Rayo;
 
     [SerializeField]
     public float RotationSpeed = 20f;
 
+
     [SerializeField]
-    public float VelocityOb = 1.8f;
+    public float VelocityOb = 0f;
 
     [SerializeField]
     public float LifeDurationH;
     public TopDownCharacterMover tp1;
+    public TopDownCharacterMover2 tp2;
 
     float lifeTimer;
     //public GameObject DS_Hermes;
-    
-    
+
+
 
     //Start
     private void Start()
     {
         lifeTimer = LifeDurationH;
         tp1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<TopDownCharacterMover>();
-        
+        tp2 = GameObject.FindGameObjectWithTag("Player1").GetComponent<TopDownCharacterMover2>();
 
     }
 
@@ -34,7 +36,7 @@ public class Hermes_Velocity : MonoBehaviour// PW_Ups //Ibox
     void Update()
     {
 
-        Hermes.Rotate(Vector3.up * RotationSpeed * Time.deltaTime);
+        Rayo.Rotate(Vector3.up * RotationSpeed * Time.deltaTime);
 
         lifeTimer -= Time.deltaTime;
         if (lifeTimer <= 0)
@@ -44,33 +46,26 @@ public class Hermes_Velocity : MonoBehaviour// PW_Ups //Ibox
 
     }
 
-   private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player1"))
         {
-            StartCoroutine(EfecctHermes());
+            StartCoroutine(EfecctRayo(1));
         }
     }
-   IEnumerator EfecctHermes()
+    IEnumerator EfecctRayo(int x)
     {
-        tp1.WalkSpeed *=VelocityOb;
-        Destroy(gameObject);
-        yield return new WaitForSeconds(4);
-        tp1.WalkSpeed /= 1.8f;
-        Debug.Log("Recogi power Up: Hermes");
-        //Instantiate(DS_Hermes, transform.position, transform.rotation);
+        if (x == 1)
+        {
+            tp2.DontMove();
+            Destroy(gameObject);
+            yield return new WaitForSeconds(4);
+            tp2.WalkSpeed = 8f;
+            Debug.Log("Recogi power Up: Rayo");
+        }
+        
         
 
+
     }
-
-    /*int PW_Ups.getID()
-    {
-        return (int)PW_UpsID.VELOX2;
-    }
-
-    float PW_Ups.GetEffects()
-    {
-        return VelocityOb;
-    }*/
-
 }
