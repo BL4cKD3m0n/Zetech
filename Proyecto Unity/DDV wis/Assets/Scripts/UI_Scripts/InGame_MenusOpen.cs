@@ -21,21 +21,9 @@ public class InGame_MenusOpen : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
             MostrarPausa();
-
-            /*ActiveObj = true;
-            MostrarPausa(ActiveObj);
-
-            if (ActiveObj == true && Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Q))
-            {
-                ActiveObj = false;
-                PanelPausa.PantallaPausa.SetActive(ActiveObj);
-            }*/
         }
     }
-    /*public void MostrarPausa(bool ActiveObj)
-    {
-        PanelPausa.PantallaPausa.SetActive(ActiveObj);
-    }*/
+
 
     public void MostrarPausa()
     {
