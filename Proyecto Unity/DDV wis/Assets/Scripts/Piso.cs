@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Piso : MonoBehaviour
 {
@@ -8,15 +9,20 @@ public class Piso : MonoBehaviour
     public int x;
     Renderer rend;
     public GameObject c;
-
-
+    public HUD_Puntos HUD_Bar;
     void Start()
     {
         x = 0;
         rend = GetComponent<Renderer>();
         rend.enabled = true;
         rend.sharedMaterial = material[x];
+
+        HUD_Bar.sliderVerde.value = 0.0f;
+        HUD_Bar.GradVerde.Evaluate(0f);
+
         
+        HUD_Bar.sliderNaranja.value = 0.0f;
+        HUD_Bar.GradVerde.Evaluate(0f);
     }
 
     
@@ -54,6 +60,10 @@ public class Piso : MonoBehaviour
             cc.p2 -= 1;
             cc.p1 += 1;
         }
+
+        HUD_Bar.PuntuacionNaranja(cc.p1);
+        HUD_Bar.FillNaranja.color = HUD_Bar.GradNaranja.Evaluate(HUD_Bar.sliderNaranja.normalizedValue);
+
         Debug.Log("rojo"+cc.p1);
         yield return new WaitForSeconds(.1f);
     }
@@ -71,6 +81,10 @@ public class Piso : MonoBehaviour
             cc.p2 += 1;
             cc.p1 -= 1;
         }
+
+        HUD_Bar.PuntuacionVerde(cc.p2);
+        HUD_Bar.FillVerde.color = HUD_Bar.GradVerde.Evaluate(HUD_Bar.sliderVerde.normalizedValue);
+
         Debug.Log("verde"+cc.p2);
         yield return new WaitForSeconds(.1f);
     }

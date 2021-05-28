@@ -22,7 +22,7 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
     [SerializeField]
     private Camera camera;
 
-    private Animator AnimMov;
+    public Animator AnimMov;
 
     private float IntervalTimeAT2 = 0;
     private float CoolDT = 1.0f; //Cooldown Ataque

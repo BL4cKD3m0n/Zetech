@@ -72,6 +72,8 @@ public class rayo : MonoBehaviour
 
             gameObject.transform.localScale = Vector3.zero;
 
+            ScriptPj2.AnimMov.SetTrigger("InjuredT");
+
             yield return new WaitForSeconds(EffectDuration);
 
             ScriptPj2.CanMove = true;
@@ -91,6 +93,8 @@ public class rayo : MonoBehaviour
             ScriptPj1.CanMove = false;
 
             gameObject.transform.localScale = Vector3.zero;
+
+            ScriptPj1.AnimMov.SetTrigger("InjuredT");
 
             yield return new WaitForSeconds(EffectDuration);
 
