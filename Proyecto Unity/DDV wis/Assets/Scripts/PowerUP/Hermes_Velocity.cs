@@ -37,7 +37,7 @@ public class Hermes_Velocity : MonoBehaviour //PW_Ups //Ibox
         }
 
     }
-    <zx<zx<>>;
+    hokasfas_gracias;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player1"))
