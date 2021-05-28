@@ -37,7 +37,15 @@ public class Hermes_Velocity : MonoBehaviour //PW_Ups //Ibox
         }
 
     }
+<<<<<<< Updated upstream
 
+=======
+<<<<<<< HEAD
+    jsjsjsjsjchucho es puto;
+=======
+    hokasfas_gracias;
+>>>>>>> 5e72d1e9bbe1d21f176bb5df8f62deaa7ffc1590
+>>>>>>> Stashed changes
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player1"))
