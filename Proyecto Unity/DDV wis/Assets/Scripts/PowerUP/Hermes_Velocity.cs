@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hermes_Velocity : MonoBehaviour, PW_Ups //Ibox
+public class Hermes_Velocity : MonoBehaviour //PW_Ups //Ibox
 {
-
     public Transform Hermes;
 
     [SerializeField]
@@ -17,6 +16,7 @@ public class Hermes_Velocity : MonoBehaviour, PW_Ups //Ibox
     public float LifeDurationH;
 
     float lifeTimer;
+    public GameObject DS_Hermes;
 
     //Start
     private void Start()
@@ -33,12 +33,26 @@ public class Hermes_Velocity : MonoBehaviour, PW_Ups //Ibox
         lifeTimer -= Time.deltaTime;
         if (lifeTimer <= 0)
         {
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
 
     }
+    <zx<zx<>>;
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player1"))
+        {
+            EfecctHermes();
+        }
+    }
+    void EfecctHermes()
+    {
+        Debug.Log("Recogi power Up: Hermes");
+        Instantiate(DS_Hermes, transform.position, transform.rotation);
+        //Destroy(gameObject);
+    }
 
-    int PW_Ups.getID()
+    /*int PW_Ups.getID()
     {
         return (int)PW_UpsID.VELOX2;
     }
@@ -46,5 +60,6 @@ public class Hermes_Velocity : MonoBehaviour, PW_Ups //Ibox
     float PW_Ups.GetEffects()
     {
         return VelocityOb;
-    }
+    }*/
+
 }

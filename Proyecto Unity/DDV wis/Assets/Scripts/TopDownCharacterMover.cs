@@ -35,7 +35,7 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
     private Animator AnimMov;
 
     private float IntervalTimeAT1 = 0;
-    private float IntervalTimeH = 0;
+    //private float IntervalTimeH = 0;
     private float CoolDT = 1.0f;
     private float CoolDTemo = 4;
     private float CoolDash = 0.5f;
@@ -44,8 +44,8 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
     public Transform PosDirecShoot;
     public Transform Player;
 
-    public bool ChoqueH = false;
-    private float CoolPwHer = 4f;
+    //public bool ChoqueH = false;
+    //private float CoolPwHer = 4f;
 
     private void Awake()
     {
@@ -68,7 +68,7 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
 
         Debug.DrawRay(PosDirecShoot.position, PosDirecShoot.forward * 100f, Color.red); //rayo disparador
 
-        if (Time.time > IntervalTimeH)
+        /*if (Time.time > IntervalTimeH)
         {
             if (ChoqueH == true)
             {
@@ -78,7 +78,7 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
             }            
             
             //WalkSpeed = RealWalkSP;
-        }
+        }*/
 
         //Dash
         if (Time.time > IntervalTimeAT1) 
@@ -273,19 +273,19 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
      
     }
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
-        PW_Ups Hermes = other.GetComponent<PW_Ups>();
-        if (Hermes != null)
+        PW_Ups HermesCol = other.GetComponent<PW_Ups>();
+        if (HermesCol != null)
         {
-            float res = Hermes.GetEffects();
-            if (Hermes.getID() == (int)PW_UpsID.VELOX2)
+            float res = HermesCol.GetEffects();
+            if (HermesCol.getID() == (int)PW_UpsID.VELOX2)
             {
-                //WalkSpeed *= res;
+                WalkSpeed *= res;
                 //Canvas controller para que aparezca imagen dependiendo del pewi este que agarre de Pw ups
                 ChoqueH = true;
             }
 
         }
-    }
+    }*/
 }

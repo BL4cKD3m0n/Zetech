@@ -3,7 +3,7 @@
     void DoDamage(bool isPlayer);
 }
 
-interface PW_Ups //Ibox
+/*interface PW_Ups //Ibox
 {
     int getID();
     float GetEffects(); //Openbox
@@ -12,4 +12,4 @@ interface PW_Ups //Ibox
 public enum PW_UpsID //BoxID
 {
     VELOX2 = 0
-}
+}*/

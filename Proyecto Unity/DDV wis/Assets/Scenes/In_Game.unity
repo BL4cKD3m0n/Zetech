@@ -4705,7 +4705,6 @@ MonoBehaviour:
   RealWalkSP: 8
   PosDirecShoot: {fileID: 489671113}
   Player: {fileID: 427902607}
-  ChoqueH: 0
 --- !u!4 &427902607 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3236732118027296872, guid: e52705287273ad6469123e392f98c468, type: 3}
@@ -6432,6 +6431,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: ee516d6ddd3271a48bd4937c2d089fb2, type: 2}
     - target: {fileID: 919132149155446097, guid: 13399961e8ec83447b13ba808105146f, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 13399961e8ec83447b13ba808105146f, type: 3}
       propertyPath: m_Name
       value: Casco y Sandalias Power Up
       objectReference: {fileID: 0}
@@ -6629,7 +6632,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 007006703fe042445bf0295a5b7f5711, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -6665,6 +6668,7 @@ MonoBehaviour:
   RotationSpeed: 20
   VelocityOb: 1.5
   LifeDurationH: 100
+  DS_Hermes: {fileID: 0}
 --- !u!1 &668321032 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8052968141056623839, guid: ec1f78f9b2ec7194e9a34f370d5fc6d3, type: 3}
