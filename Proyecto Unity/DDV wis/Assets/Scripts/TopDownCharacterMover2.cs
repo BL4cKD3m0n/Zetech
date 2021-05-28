@@ -165,7 +165,7 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
         var targetPosition = transform.position + tagetVector * speed;
         transform.position = targetPosition;
 
-        //Agregado por chucho, si hay duda o problema decirme plotz :c
+
         if (tagetVector != Vector3.zero && !Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.Keypad1))
         {
             Walk();
@@ -174,8 +174,6 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
         {
             Idle();
         }
-
-        //
 
         return tagetVector;
 
