@@ -17,6 +17,7 @@ public class rayo : MonoBehaviour
     public float LifeDurationH;
     public TopDownCharacterMover tp1;
     public TopDownCharacterMover2 tp2;
+    public int x = 0;
 
     float lifeTimer;
     //public GameObject DS_Hermes;
@@ -50,14 +51,15 @@ public class rayo : MonoBehaviour
     {
         if (other.CompareTag("Player1"))
         {
-            StartCoroutine(EfecctRayo(1));
+            StartCoroutine(EfecctRayo());
+            x = 1;
         }
     }
-    IEnumerator EfecctRayo(int x)
+    IEnumerator EfecctRayo()
     {
         if (x == 1)
         {
-            tp2.DontMove();
+            tp2.WalkSpeed = 0;
             Destroy(gameObject);
             yield return new WaitForSeconds(4);
             tp2.WalkSpeed = 8f;
