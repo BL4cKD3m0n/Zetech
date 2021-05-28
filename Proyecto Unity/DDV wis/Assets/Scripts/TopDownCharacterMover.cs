@@ -21,7 +21,7 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
     private float DashLong;
 
     [SerializeField]
-    private bool CanMove;
+    public bool CanMove;
 
     [SerializeField]
     private Camera camera;
@@ -240,7 +240,7 @@ public class TopDownCharacterMover : MonoBehaviour, IDamage
         AnimMov.SetTrigger("VDT");
     }
 
-    private void DontMove(bool CanMove)
+    public void DontMove(bool CanMove)
     {
         if (CanMove == false)
         {
