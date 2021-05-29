@@ -88,7 +88,7 @@ public class rayo : MonoBehaviour
     {
         TopDownCharacterMover ScriptPj1 = Player1.GetComponent<TopDownCharacterMover>();
 
-        if (x == 1)
+        if (x == 2)
         {
             ScriptPj1.CanMove = false;
 
