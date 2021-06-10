@@ -29,12 +29,12 @@ public class HUD_Puntos : MonoBehaviour
 
     public void PuntuacionVerde(float PointsG)
     {
-        sliderVerde.value = PointsG;
+        sliderNaranja.value = PointsG;
     }
 
     public void PuntuacionNaranja(float PointsO)
     {
-        sliderNaranja.value = PointsO;
+        sliderVerde.value = PointsO;
     }
 }
 //143 pisos totales
