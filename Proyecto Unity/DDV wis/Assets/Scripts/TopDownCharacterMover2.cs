@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class TopDownCharacterMover2 : MonoBehaviour, IDamage
 {
+    public bool ActiveShield2;
+    Shield_Campo ScriptShield;
+
     private InputHandler2 _input;
     public int player = 2;
 
@@ -41,7 +44,7 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
     }
 
     void Update()
-    { 
+    {       
         var targetVector = new Vector3(_input.InputVector.x, 0, _input.InputVector.y);
 
         //var movementVector=MoveTowardTarget(targetVector);
@@ -140,7 +143,9 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
             {
                 CanMove = true;
             }
-        }       
+        }
+
+        ScriptShield.ActivateMove = ActiveShield2;
     }
 
     private void RotateTowardMovementVector(Vector3 movementVector)
@@ -219,17 +224,23 @@ public class TopDownCharacterMover2 : MonoBehaviour, IDamage
     }
     public void DoDamage(bool isPlayer)
     {
+        
+
         Debug.Log("He Recibido Pastelazo " + " isPlayer = " + isPlayer);
 
         if (Time.time > IntervalTimeAT2)
         {
-            if (isPlayer == true)
+            if (isPlayer == true && ActiveShield2 == false)
             {
                 CanMove = false;
                 AnimMov.SetTrigger("InjuredT");
                 IntervalTimeAT2 = Time.time + CoolDañoRecibido;
             }
-            else
+            else if(isPlayer == false && ActiveShield2 == false)
+            {
+                CanMove = true;
+            }
+            else if(isPlayer ==false && ActiveShield2 == true)
             {
                 CanMove = true;
             }

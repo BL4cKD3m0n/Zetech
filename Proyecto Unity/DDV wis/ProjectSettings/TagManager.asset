@@ -5,6 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - hermes
+  - PanelWinner
+  - PanelPausa
+  - Player2
+  - piso
+  - Player1
+  - Escudo1
+  - Escudo2
   layers:
   - Default
   - TransparentFX

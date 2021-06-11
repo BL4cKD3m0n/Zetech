@@ -1668,7 +1668,7 @@ GameObject:
   - component: {fileID: 149863584}
   m_Layer: 0
   m_Name: Escudo_Pj1
-  m_TagString: Untagged
+  m_TagString: Escudo1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5320,6 +5320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d8befadfe107924eb4bd78b07d9f04a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ActiveShield1: 0
   player: 1
   moveSpeed: 0
   WalkSpeed: 8
@@ -11616,7 +11617,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 93006320b41079a42819fdd78cd16629, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.267342
+      value: -2.42
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 93006320b41079a42819fdd78cd16629, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11624,7 +11625,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 93006320b41079a42819fdd78cd16629, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.7547445
+      value: -2.54
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 93006320b41079a42819fdd78cd16629, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12157,7 +12158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 24b621e4df3b25e468b0858265e03dbc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.26
+      value: -2.39
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 24b621e4df3b25e468b0858265e03dbc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12165,7 +12166,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 24b621e4df3b25e468b0858265e03dbc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.54653
+      value: -11.07
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 24b621e4df3b25e468b0858265e03dbc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -23244,7 +23245,7 @@ GameObject:
   - component: {fileID: 1997441229}
   m_Layer: 0
   m_Name: Escudo_Pj2
-  m_TagString: Untagged
+  m_TagString: Escudo2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24008,7 +24009,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2309594082644243443, guid: 7e0a8114b15b14442bf25aa02c437067, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.82
+      value: -2.27
       objectReference: {fileID: 0}
     - target: {fileID: 2309594082644243443, guid: 7e0a8114b15b14442bf25aa02c437067, type: 3}
       propertyPath: m_LocalPosition.y
@@ -24016,7 +24017,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2309594082644243443, guid: 7e0a8114b15b14442bf25aa02c437067, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.146529
+      value: 9.84
       objectReference: {fileID: 0}
     - target: {fileID: 2309594082644243443, guid: 7e0a8114b15b14442bf25aa02c437067, type: 3}
       propertyPath: m_LocalRotation.w

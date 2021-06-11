@@ -96,7 +96,7 @@ public class rayo : MonoBehaviour
 
             ScriptPj1.AnimMov.SetTrigger("InjuredT");
 
-            yield return new WaitForSeconds(EffectDuration);
+            yield return new WaitForSeconds(EffectDuration);           
 
             ScriptPj1.CanMove = true;
 
