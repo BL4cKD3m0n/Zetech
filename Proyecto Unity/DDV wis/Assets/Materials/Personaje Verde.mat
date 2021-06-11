@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Burbuja
-  m_Shader: {fileID: -6465566751694194690, guid: 84f61d49d1a1fa34e9ed49f38f58eaf0, type: 3}
+  m_Name: Personaje Verde
+  m_Shader: {fileID: -6465566751694194690, guid: d825382fc9be68843815ba1ebe0d93cf, type: 3}
   m_ShaderKeywords: _EMISSION _NORMALMAP _SPECULAR_SETUP
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 1
@@ -72,28 +72,19 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_C10B7F_Texture_1:
-        m_Texture: {fileID: 2800000, guid: a21e1823890779744be6c9dde2456d21, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_3D624DA1: 0
-    - Vector1_3FB89A67: 0.14
     - Vector1_4BCDDF09: 0
     - Vector1_53D80ABD: 0
     - Vector1_54AE9F50: 0
     - Vector1_577DC8E6: 0.44
-    - Vector1_600F1A01: 60.22
-    - Vector1_703C6EA2: 1.72
-    - Vector1_73ABD230: 2
-    - Vector1_823A4779: 0.2
-    - Vector1_BDA64002: 1
+    - Vector1_BDA64002: 0
     - Vector1_DC841FCD: 0
-    - Vector1_F0238CCE: 1.25
+    - Vector1_F0238CCE: 2.86
     - _AlphaClip: 0
     - _Blend: 2
     - _BumpScale: 1
@@ -120,12 +111,10 @@ Material:
     - _WorkflowMode: 0
     - _ZWrite: 0
     m_Colors:
-    - Color_1249A584: {r: 3.3498302, g: 0.54091156, b: 4.9857926, a: 0}
-    - Color_45DD8100: {r: 0.29190874, g: 0, b: 1, a: 1}
+    - Color_45DD8100: {r: 0, g: 1, b: 0.0184803, a: 1}
     - Color_480E31FE: {r: 0, g: 0, b: 0, a: 0}
-    - Color_551E58EF: {r: 1, g: 0.6556604, b: 0.95616025, a: 0}
+    - Color_551E58EF: {r: 0.77810806, g: 1, b: 0.5235849, a: 0}
     - Color_98BA761B: {r: 0, g: 0, b: 0, a: 0}
-    - Color_CEF5481E: {r: 0.3804152, g: 0, b: 2.139835, a: 0}
     - Color_E1B74A3D: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 0.43516445, g: 0, b: 1, a: 1}
     - _Color: {r: 0.56833535, g: 0.2807049, b: 0.7169812, a: 1}
